@@ -1,17 +1,23 @@
 // Loading libraries
-
-// Connecting to database
-const connection = require('./lib/connectMongoose');
-
+const readline = require('readline');
 // Loading models
 const Anuncio = require('./models/Anuncio');
 
 async function main() {
+    // Ask at user for confirmation about remove all content from database
+    const confirmacion = await confirmarBorrado('Estás seguro de que deseas eliminar la base de datos? [n] ("si" para confirmar) ');
+    if (!confirmacion) {
+        process.exit();
+    }
+    // Connecting to database
+    const connection = require('./lib/connectMongoose');
     // Initializing the advertisements collection
     await initAnuncios();
     // Disconnecting from database
     connection.close();
 }
+
+main().catch(err => console.log('Ha ocurrido un error', err));
 
 async function initAnuncios() {
     const result = await Anuncio.deleteMany();
@@ -43,4 +49,19 @@ async function initAnuncios() {
     console.log(`Se han creado ${inserted.length} nuevos anuncios.`);
 }
 
-main().catch(err => console.log('Ha ocurrido un error', err));
+function confirmarBorrado(texto) {
+    return new Promise((resolve, reject) => {
+        const interface = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        interface.question(texto, respuesta => {
+            interface.close();
+            if (respuesta.toLowerCase() === 'si') {
+                resolve(true);
+                return;
+            }
+            resolve(false);
+        });
+    });
+};
