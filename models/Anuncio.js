@@ -2,17 +2,32 @@
 
 const mongoose = require('mongoose');
 
-// definir el esquema de los anuncios
+// Ads Schema definition
 const anuncioSchema = mongoose.Schema({
-    nombre: { type: String, unique: true },
+    nombre: { type: String, index: true },
     venta: Boolean,
     precio: Number,
     foto: String, 
-    tag: [String]
+    tags: [String]
 });
 
-// crear el modelo
+// Static methods
+anuncioSchema.statics.lista = function(filtro, skip, limit, fields, sort) {
+    const query = Anuncio.find(filtro);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(fields);
+    query.sort(sort);
+    return query.exec();
+}
+
+anuncioSchema.statics.listaTags = function() {
+    const query = Anuncio.distinct('tags');
+    return query.exec();
+}
+
+// Model creation
 const Anuncio = mongoose.model('Anuncio', anuncioSchema);
 
-// exportar el modelo
+// Export module
 module.exports = Anuncio;
