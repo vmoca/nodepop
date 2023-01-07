@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const Anuncio = require('./models/Anuncio');
 
 require('./lib/connectMongoose');
 require('./routes/apiv1/anuncios');
@@ -10,6 +11,9 @@ require('./routes/apiv1/anuncios');
 var app = express();
 
 app.locals.title ='Nodepop';
+app.locals.subtitle ='Tu API de anuncios';
+app.locals.filter_ads ='Filtrar anuncios';
+app.locals.tags_page ='Tags disponibles';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
