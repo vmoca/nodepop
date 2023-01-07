@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
         // pagination
         const skip  = req.query.skip;               // ( /apiv1/anuncios?skip=0&limit=2 )
         const limit = req.query.limit;
-        // field seection
+        // field selection
         const fields = req.query.fields;            // ( /apiv1/anuncios?fields=nombre OR /apiv1/anuncios?fields=nombre -_id)
         // sort
         const sort = req.query.sort;                // ( /apiv1/anuncios?sort=precio )
