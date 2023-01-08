@@ -18,9 +18,7 @@ Una vez instalado, en Windows el servicio debe arrancar de manera predeterminada
 ./bin/mongodb --dbpath ./data/anuncios
 ```
 
-¡Atención! Debes adaptar dicho comando a las rutas que hayas usado en tu instalación.
-
-A partir de este momento tenemos la API instalada y la base de datos preparada. Aún hay que introducir datos en la base de datos y arrancar la API.
+Debes adaptar dicho comando a las rutas que hayas usado en tu instalación.
 
 ## Inicializando la base de datos
 Es recomendable inicializar la base de datos antes de empezar a utilizar la API. Al inicializarla se crearán 3 auncios predefinidos.
@@ -43,10 +41,16 @@ npm run dev
 ```
 
 La API está preparada para recibir consultas.
+Podemos acceder a la "Home" del site donde encontraremos un listado completo con los anuncios disponibles con sus datos e imágenes:
+```
+http://localhost:3000/
+```
 
 # Documentación de la API
 
 La API ofrece la siguiente funcionalidad:
+
+* Vista general con todos los anuncios y sus datos e imágenes.
 
 * Listado de anuncios con posibilidad de realizar filtros:
     1. Filtros por nombre de artículo
@@ -63,6 +67,12 @@ La API ofrece la siguiente funcionalidad:
 * Listado de tags existentes.
 
 * Creación de un nuevo anuncio.
+
+## Vista con todos los anuncios
+Al acceder a la home encontraremos todos los anuncios disponibles con sus datos e imágenes y un menú de navegación con las diferentes opciones disponibles:
+```
+http://localhost:3000/
+```
 
 ## Listado de anuncios con filtros
 Podemos obtener un listado de todos los anuncios que hay en base de datos.
@@ -90,7 +100,7 @@ Filtrar anuncios por precio / rango de precios:
 http://localhost:3000/apiv1/anuncios?precio=2600
 ```
 ```
-http://localhost:3000/apiv1/anuncios?precio=100-2600
+http://localhost:3000/apiv1/anuncios?precio=100-2000
 ```
 ```
 http://localhost:3000/apiv1/anuncios?precio=1000-
@@ -141,8 +151,19 @@ Obtener un listado de todos los tags existentes:
 http://localhost:3000/apiv1/anuncios/tags
 ```
 
+## Obtener imágenes
+En la página principal se muestran todos los anuncios con sus datos y sus imágenes:
+```
+http://localhost:3000
+```
+
+También puedes obtener imágenes de forma individual de los anuncios existentes:
+```
+http://localhost:3000/images/canonr6.jpg
+```
+
 ## Crear nuevos anuncios
-Podemos crear nuevos anuncios, para ello utilizaremos postman con el método POST e iremos introduciendo los campos "nombre", "venta", "precio", "foto" y "tags":
+Podemos crear nuevos anuncios a través de postman. Para la consulta utilizaremos el método POST con el parámetro de body "x-www-form-urlencoded" e iremos introduciendo los campos "nombre", "venta", "precio", "foto" y "tags":
 ```
 POST http://localhost:3000/apiv1/anuncios
 ```

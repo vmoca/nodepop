@@ -26,12 +26,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /**
- * Rutas de mi API
+ * API Routes
  */
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 /**
- * Rutas de mi website
+ * Website routes
  */
 
 app.use('/', function(req, res, next) {
@@ -40,7 +40,6 @@ app.use('/', function(req, res, next) {
 })
 
 app.use('/',      require('./routes/index'));
-app.use('/users', require('./routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +49,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
 
-  // comprobar si es un error de validación
+  // check if is a validation error
   if (err.array) {
     err.status = 422;
     const errorInfo = err.array({ onlyFirstError: true})[0];

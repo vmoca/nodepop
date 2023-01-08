@@ -4,6 +4,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  background-color: #4dc1ff !important;
 }
 
 h1,
@@ -13,6 +14,10 @@ h4,
 h5,
 h6 {
   font-family: 'Raleway';
+}
+
+h2.section-heading {
+  color: #fff;
 }
 
 p {
@@ -69,7 +74,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color: rgb(15 34 47 / 90%);
   font-family: 'Raleway';
 }
 
@@ -246,4 +251,16 @@ p {
 
 .font-weight-light {
   font-weight: 100 !important;
+}
+
+.white-txt {
+  color: #d4d1d1;
+}
+
+.sp-bold {
+  font-weight: bold;
+}
+
+.sp-thin {
+  font-weight: 400;
 }

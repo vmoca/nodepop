@@ -18,16 +18,16 @@
           <div class="product-item-description d-flex mr-auto">
             <div class="bg-faded p-5 rounded">
               <div class="descrip-anun">
-                <span><%= type %></span>
+                <span class="sp-bold"><%= type %></span>
                 <%if (anuncio.venta === true){%>
                 <%= sale %>
                 <%}else{%>
                 <%= buy %>
                 <%}%>
               </div>
-              <div class="descrip-anun"><span><%= price %></span> <%= anuncio.precio %> €</div>
+              <div class="descrip-anun"><spa class="sp-bold"n><%= price %></span> <span class="sp-thin"><%= anuncio.precio %> €</span></div>
               <div class="descrip-anun">
-                <span><%= tags %></span>
+                <span class="sp-bold"><%= tags %></span>
                 <div class="tag">
                   <%= anuncio.tags %>
                 </div>

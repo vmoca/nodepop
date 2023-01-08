@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 // Ads Schema definition
 const anuncioSchema = mongoose.Schema({
-    nombre: { type: String, index: true },
+    nombre: String,
     venta: Boolean,
     precio: Number,
     foto: String, 
