@@ -1,6 +1,6 @@
 # Nodepop
 
-Nodepop es una API de demostración de un servicio de compra y venta de artículos de segunda mano. El servicio mantiene anuncios de compra o venta de artículos y permite el filtrado por varios criterios.
+Nodepop es una API de demostración de un servicio de compra y venta de artículos de segunda mano que permite el filtrado por varios criterios.
 
 ## Instalando Nodepop
 
@@ -8,17 +8,6 @@ Instalar las dependencias necesarias:
 ```
 npm install
 ```
-
-## Requisito - MongoDB
-Previamente hay que instalar MongoDB según el SO que utilices. 
-
-Una vez instalado, en Windows el servicio debe arrancar de manera predeterminada. En Linux o Mac puedes arrancar el servidor local de mongoDB con:
-
-```
-./bin/mongodb --dbpath ./data/anuncios
-```
-
-Debes adaptar dicho comando a las rutas que hayas usado en tu instalación.
 
 ## Inicializando la base de datos
 Es recomendable inicializar la base de datos antes de empezar a utilizar la API. Al inicializarla se crearán 3 auncios predefinidos.
